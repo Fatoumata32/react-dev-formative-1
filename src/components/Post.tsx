@@ -6,7 +6,7 @@ type PostProps = {
 
 function Post({ post }: PostProps) {
   return (
-    <article className="post-card">
+    <article className={`post-card${post.author === 'Maya Chen' ? ' team-highlight' : ''}`}>
       <div className="post-meta">
         <span>{post.author}</span>
         <span aria-hidden="true">/</span>

@@ -1,0 +1,166 @@
+.app-shell {
+  width: min(100% - 40px, 1120px);
+  margin: 0 auto;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+}
+
+.brand span {
+  color: var(--coral);
+}
+
+.new-post-link,
+.read-link {
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.new-post-link span {
+  display: inline-grid;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: 0.4rem;
+  place-items: center;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+}
+
+main {
+  padding-bottom: 80px;
+}
+
+.intro {
+  max-width: 700px;
+  padding: 84px 0 70px;
+}
+
+.eyebrow,
+.post-meta,
+.section-heading span {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.intro h1 {
+  max-width: 620px;
+  margin: 0.8rem 0 1rem;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: -0.07em;
+}
+
+.intro-copy {
+  max-width: 420px;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 14px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 1.7rem;
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.post-card {
+  display: flex;
+  min-height: 270px;
+  flex-direction: column;
+  padding: 24px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 8px 8px 0 var(--mint);
+}
+
+.post-card.team-highlight {
+  border-top: 5px solid var(--coral);
+}
+
+.post-meta {
+  display: flex;
+  gap: 8px;
+}
+
+.post-card h2 {
+  margin: 28px 0 12px;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 1.6rem;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.post-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.read-link {
+  margin-top: auto;
+  padding-top: 28px;
+}
+
+.read-link span {
+  margin-left: 6px;
+  color: var(--coral);
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    width: min(100% - 28px, 560px);
+  }
+
+  .intro {
+    padding: 64px 0 54px;
+  }
+
+  .intro h1 {
+    font-size: clamp(3.5rem, 18vw, 5.5rem);
+  }
+
+  .posts {
+    grid-template-columns: 1fr;
+  }
+}

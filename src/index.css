@@ -1,0 +1,36 @@
+:root {
+  --ink: #18231f;
+  --muted: #68736e;
+  --paper: #fffdf8;
+  --line: #d9ddd5;
+  --mint: #c7e8d2;
+  --coral: #e36c52;
+  --display: Georgia, 'Times New Roman', serif;
+  --body: 'Trebuchet MS', Verdana, sans-serif;
+  font-family: var(--body);
+  color: var(--ink);
+  background: #f1f3ed;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: linear-gradient(135deg, #f1f3ed 0%, #e8f0e8 100%);
+}
+
+button,
+a {
+  font: inherit;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--coral);
+  outline-offset: 4px;
+}
