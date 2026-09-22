@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import type { PostData } from '../types'
 
 type PostProps = {
@@ -21,4 +22,4 @@ function Post({ post }: PostProps) {
   )
 }
 
-export default Post
+export default memo(Post)
