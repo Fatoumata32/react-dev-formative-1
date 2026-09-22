@@ -55,85 +55,18 @@ typography, and reset styles, while `App.css` contains the blog layout and
 component styles. There is also conditional styling in `Post.tsx`: posts by
 Maya Chen receive the `team-highlight` class and a coral top border.
 
-## Optimization and next steps
+## Optimization and higher-order component
 
-The next development milestone will add `React.memo` to the reusable `Post`
-component and a small `withLogger` higher-order component that logs mounting
-and unmounting. These will be added as separate commits so the development
-history shows the project growing incrementally.
+The reusable `Post` component is wrapped with `React.memo`. This lets React
+reuse an existing post card when its `post` prop has not changed, avoiding an
+unnecessary render.
+
+The `withLogger` higher-order component in `src/hoc/withLogger.tsx` wraps the
+header and uses `useEffect` to log when the wrapped component mounts and
+unmounts. The HOC is typed with `ComponentType` and generic props.
 
 ## Reflection
 
-The most useful part of this project so far has been breaking a page into
-small components and giving the data a clear TypeScript shape. This made the
-relationship between the post list and each individual post easier to follow,
-and it also made the markup more reusable.
-
-One challenge was replacing the default Vite screen while keeping the layout
-responsive. I handled this by separating global styles from app styles and
-using a simple responsive grid that becomes one column on smaller screens. I
-would like to explore connecting the posts to an API and adding a real new-post
-form next.
-
-## External packages
-
-- React
-- React DOM
-- Vite
-- TypeScript
-- ESLint
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
