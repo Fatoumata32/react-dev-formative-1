@@ -9,7 +9,13 @@ function Post({ post }: PostProps) {
   return (
     <article className={`post-card${post.author === 'Maya Chen' ? ' team-highlight' : ''}`}>
       <div className="post-meta">
-        <span>{post.author}</span>
+        <span
+          style={{
+            color: post.author === 'Maya Chen' ? 'var(--coral)' : 'var(--muted)',
+          }}
+        >
+          {post.author}
+        </span>
         <span aria-hidden="true">/</span>
         <time dateTime={post.date}>{post.date}</time>
       </div>
