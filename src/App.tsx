@@ -1,11 +1,14 @@
 import Header from './components/Header'
 import PostList from './components/PostList'
+import withLogger from './hoc/withLogger'
 import './App.css'
+
+const LoggedHeader = withLogger(Header, 'Header')
 
 function App() {
   return (
     <div className="app-shell">
-      <Header />
+      <LoggedHeader />
       <main>
         <section className="intro">
           <p className="eyebrow">Internal knowledge base</p>
